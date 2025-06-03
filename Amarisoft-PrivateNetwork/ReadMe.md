@@ -2,7 +2,9 @@
 
 ## Overview
 
-This repository contains logs related to the installation, activation, disabling, and deactivation of an eSIM. The logs are split into two directories based on their source:
+This repository contains logs related to the installation, activation, disabling, and deactivation of an eSIM. 
+
+The logs are split into two directories based on their source:
 
 ---
 
