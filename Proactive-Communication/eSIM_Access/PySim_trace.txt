@@ -1,0 +1,263 @@
+~/pysim$ ./pySim-trace.py gsmtap-udp
+INFO     root: Opening source gsmtap-udp...
+Detected UICC Add-on "SIM"
+Detected UICC Add-on "GSM-R"
+Detected UICC Add-on "RUIM"
+Can't read AIDs from SIM -- 'list' object has no attribute 'lower'
+warning: EF.DIR seems to be empty!
+ ADF.ECASD: a0000005591010ffffffff8900000200
+ ADF.ISD-R: a0000005591010ffffffff8900000100
+ ISIM: a0000000871004
+ USIM: a0000000871002
+INFO     root: Entering main loop...
+00 UPDATE RECORD                                        01       9000 "a0348001008120c58e902427b61792eadf31a5229b77d5dd24e6a77db0809bb03232db162d964b820400000035830400000017840122ffffffffffffffffffffffffffffffffffffffffffffffffffff"
+===============================
+00 ENVELOPE                                             -        9000 {"p1": 0, "p2": 0, "cmd": [{"event_download": [{"event_list": ["location_status"]}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"location_status": "no_service"}]}]}
+===============================
+CardReset(3b9f96803f87828031e073fe211f574543753130136502)
+===============================
+00 READ BINARY      MF/EF.UMPC                          -        9000 {"max_current_mA": 10, "t_op_s": 20, "addl_info": {"req_inc_idle_current": false, "support_uicc_suspend": true}}
+===============================
+00 TERMINAL CAPABILITY                                     -        9000 {"p1": 0, "p2": 0, "cmd": "a90d8003043cff8100820101830100"}
+===============================
+00 READ BINARY      MF/EF.ICCID                         -        9000 {"iccid": "89852350624000016403"}
+===============================
+00 MANAGE CHANNEL                                       01       9000 {"mode": "open_channel", "created_channel": 1}
+===============================
+01 STORE DATA                                           -        9000 {"p1": 145, "p2": 0, "cmd": "bf3e035c015a", "rsp": "bf3e125a1089044045116727494800000008644740"}
+===============================
+00 MANAGE CHANNEL                                       01       9000 {"mode": "close_channel", "closed_channel": 1}
+===============================
+00 READ BINARY      MF/EF.PL                            -        9000 [null]
+===============================
+00 TERMINAL PROFILE                                     -        9112 {"p1": 0, "p2": 0, "cmd": "ffffffff7f9d00dfbf00001fe2000000c3f0000700016800510100000008028007700603"}
+===============================
+00 MANAGE CHANNEL                                       01       9112 {"mode": "open_channel", "created_channel": 1}
+===============================
+00 READ RECORD      MF/EF.DIR                           01       9112 {"application_template": [{"application_id": "a0000000871002ff33ff018900000100"}, {"application_label": "USIM"}]}
+===============================
+00 READ RECORD      MF/EF.DIR                           02       9112 {"application_template": null}
+===============================
+00 READ RECORD      MF/EF.DIR                           03       9112 {"application_template": null}
+===============================
+00 READ RECORD      MF/EF.DIR                           04       9112 {"application_template": null}
+===============================
+00 GET STATUS                                           -        9112 {"p1": 0, "p2": 12}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"set_up_menu": [{"command_details": {"command_number": 1, "type_of_command": "set_up_menu", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "terminal"}}, {"unknown_compr_tlv_ie_8_f": {"raw": "81496e666f"}}]}}
+===============================
+00 TERMINAL RESPONSE                                     -        9110 {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "set_up_menu", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "command_data_not_understood_by_terminal", "additional_information": ""}}]}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"set_up_event_list": [{"command_details": {"command_number": 1, "type_of_command": "set_up_event_list", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "terminal"}}, {"event_list": ["location_status", "data_available", "channel_status"]}]}}
+===============================
+00 READ RECORD      MF/ADF.USIM/EF.ECC                  01       9000 null
+===============================
+00 TERMINAL RESPONSE                                     -        910f {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "set_up_event_list", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "performed_successfully", "additional_information": ""}}]}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"poll_interval": [{"command_details": {"command_number": 1, "type_of_command": "poll_interval", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "terminal"}}, {"duration": {"time_unit": "seconds", "time_interval": 30}}]}}
+===============================
+00 UNBLOCK PIN                                          -        63ca {"scope": "global_mf", "referenced_data_nr": 1, "mode": "check_remaining_attempts", "remaining_attempts": 10}
+===============================
+00 TERMINAL RESPONSE                                     -        9000 {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "poll_interval", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "performed_successfully", "additional_information": ""}}, {"duration": {"time_unit": "seconds", "time_interval": 30}}]}
+===============================
+00 VERIFY PIN                                           -        63c3 {"scope": "global_mf", "referenced_data_nr": 1, "mode": "check_remaining_attempts", "remaining_attempts": 3}
+===============================
+00 UNBLOCK PIN                                          -        63ca {"scope": "specific_df_adf", "referenced_data_nr": 1, "mode": "check_remaining_attempts", "remaining_attempts": 10}
+===============================
+00 VERIFY PIN                                           -        63c3 {"scope": "specific_df_adf", "referenced_data_nr": 1, "mode": "check_remaining_attempts", "remaining_attempts": 3}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.AD                   -        9000 {"ms_operation_mode": "normal", "additional_info": {"ciphering_indicator": false, "csg_display_control": false, "prose_services": false, "extended_drx": false}, "rfu": 0, "mnc_len": 2, "extensions": ""}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.IMSI                 -        9000 {"imsi": "454351012779971"}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.ACC                  -        9000 {"ACC0": false, "ACC1": true, "ACC2": false, "ACC3": false, "ACC4": false, "ACC5": false, "ACC6": false, "ACC7": false, "ACC8": false, "ACC9": false, "ACC10": false, "ACC11": false, "ACC12": false, "ACC13": false, "ACC14": false, "ACC15": false}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.UST                  -        9000 {"1": {"activated": false, "description": "Local Phone Book"}, "2": {"activated": false, "description": "Fixed Dialling Numbers (FDN)"}, "3": {"activated": false, "description": "Extension 2"}, "4": {"activated": false, "description": "Service Dialling Numbers (SDN)"}, "5": {"activated": false, "description": "Extension3"}, "6": {"activated": false, "description": "Barred Dialling Numbers (BDN)"}, "7": {"activated": false, "description": "Extension4"}, "8": {"activated": false, "description": "Outgoing Call Information (OCI and OCT)"}, "9": {"activated": false, "description": "Incoming Call Information (ICI and ICT)"}, "10": {"activated": false, "description": "Short Message Storage (SMS)"}, "11": {"activated": false, "description": "Short Message Status Reports (SMSR)"}, "12": {"activated": false, "description": "Short Message Service Parameters (SMSP)"}, "13": {"activated": false, "description": "Advice of Charge (AoC)"}, "14": {"activated": false, "description": "Capability Configuration Parameters 2 (CCP2)"}, "15": {"activated": false, "description": "Cell Broadcast Message Identifier"}, "16": {"activated": false, "description": "Cell Broadcast Message Identifier Ranges"}, "17": {"activated": false, "description": "Group Identifier Level 1"}, "18": {"activated": false, "description": "Group Identifier Level 2"}, "19": {"activated": true, "description": "Service Provider Name"}, "20": {"activated": true, "description": "User controlled PLMN selector with Access Technology"}, "21": {"activated": true, "description": "MSISDN"}, "22": {"activated": false, "description": "Image (IMG)"}, "23": {"activated": false, "description": "Support of Localised Service Areas (SoLSA)"}, "24": {"activated": false, "description": "Enhanced Multi-Level Precedence and Pre-emption Service"}, "25": {"activated": false, "description": "Automatic Answer for eMLPP"}, "26": {"activated": false, "description": "RFU"}, "27": {"activated": true, "description": "GSM Access"}, "28": {"activated": true, "description": "Data download via SMS-PP"}, "29": {"activated": false, "description": "Data download via SMS-CB"}, "30": {"activated": false, "description": "Call Control by USIM"}, "31": {"activated": false, "description": "MO-SMS Control by USIM"}, "32": {"activated": false, "description": "RUN AT COMMAND command"}, "33": {"activated": true, "description": "shall be set to 1"}, "34": {"activated": true, "description": "Enabled Services Table"}, "35": {"activated": false, "description": "APN Control List (ACL)"}, "36": {"activated": false, "description": "Depersonalisation Control Keys"}, "37": {"activated": false, "description": "Co-operative Network List"}, "38": {"activated": true, "description": "GSM security context"}, "39": {"activated": false, "description": "CPBCCH Information"}, "40": {"activated": false, "description": "Investigation Scan"}, "41": {"activated": false, "description": "MexE"}, "42": {"activated": true, "description": "Operator controlled PLMN selector with Access Technology"}, "43": {"activated": true, "description": "HPLMN selector with Access Technology"}, "44": {"activated": false, "description": "Extension 5"}, "45": {"activated": true, "description": "PLMN Network Name"}, "46": {"activated": false, "description": "Operator PLMN List"}, "47": {"activated": false, "description": "Mailbox Dialling Numbers"}, "48": {"activated": false, "description": "Message Waiting Indication Status"}, "49": {"activated": false, "description": "Call Forwarding Indication Status"}, "50": {"activated": false, "description": "Reserved and shall be ignored"}, "51": {"activated": false, "description": "Service Provider Display Information"}, "52": {"activated": false, "description": "Multimedia Messaging Service (MMS)"}, "53": {"activated": false, "description": "Extension 8"}, "54": {"activated": false, "description": "Call control on GPRS by USIM"}, "55": {"activated": false, "description": "MMS User Connectivity Parameters"}, "56": {"activated": false, "description": "Network's indication of alerting in the MS (NIA)"}, "57": {"activated": false, "description": "VGCS Group Identifier List (EFVGCS and EFVGCSS)"}, "58": {"activated": false, "description": "VBS Group Identifier List (EFVBS and EFVBSS)"}, "59": {"activated": false, "description": "Pseudonym"}, "60": {"activated": false, "description": "User Controlled PLMN selector for I-WLAN access"}, "61": {"activated": false, "description": "Operator Controlled PLMN selector for I-WLAN access"}, "62": {"activated": false, "description": "User controlled WSID list"}, "63": {"activated": false, "description": "Operator controlled WSID list"}, "64": {"activated": false, "description": "VGCS security"}, "65": {"activated": false, "description": "VBS security"}, "66": {"activated": false, "description": "WLAN Reauthentication Identity"}, "67": {"activated": false, "description": "Multimedia Messages Storage"}, "68": {"activated": false, "description": "Generic Bootstrapping Architecture (GBA)"}, "69": {"activated": false, "description": "MBMS security"}, "70": {"activated": false, "description": "Data download via USSD and USSD application mode"}, "71": {"activated": true, "description": "Equivalent HPLMN"}, "72": {"activated": false, "description": "Additional TERMINAL PROFILE after UICC activation"}, "73": {"activated": false, "description": "Equivalent HPLMN Presentation Indication"}, "74": {"activated": false, "description": "Last RPLMN Selection Indication"}, "75": {"activated": false, "description": "OMA BCAST Smart Card Profile"}, "76": {"activated": false, "description": "GBA-based Local Key Establishment Mechanism"}, "77": {"activated": false, "description": "Terminal Applications"}, "78": {"activated": false, "description": "Service Provider Name Icon"}, "79": {"activated": false, "description": "PLMN Network Name Icon"}, "80": {"activated": false, "description": "Connectivity Parameters for USIM IP connections"}, "81": {"activated": false, "description": "Home I-WLAN Specific Identifier List"}, "82": {"activated": false, "description": "I-WLAN Equivalent HPLMN Presentation Indication"}, "83": {"activated": false, "description": "I-WLAN HPLMN Priority Indication"}, "84": {"activated": false, "description": "I-WLAN Last Registered PLMN"}, "85": {"activated": true, "description": "EPS Mobility Management Information"}, "86": {"activated": false, "description": "Allowed CSG Lists and corresponding indications"}, "87": {"activated": false, "description": "Call control on EPS PDN connection by USIM"}, "88": {"activated": false, "description": "HPLMN Direct Access"}, "89": {"activated": false, "description": "eCall Data"}, "90": {"activated": false, "description": "Operator CSG Lists and corresponding indications"}, "91": {"activated": false, "description": "Support for SM-over-IP"}, "92": {"activated": false, "description": "Support of CSG Display Control"}, "93": {"activated": false, "description": "Communication Control for IMS by USIM"}, "94": {"activated": false, "description": "Extended Terminal Applications"}, "95": {"activated": false, "description": "Support of UICC access to IMS"}, "96": {"activated": false, "description": "Non-Access Stratum configuration by USIM"}, "97": {"activated": false, "description": "PWS configuration by USIM"}, "98": {"activated": false, "description": "RFU"}, "99": {"activated": false, "description": "URI support by UICC"}, "100": {"activated": false, "description": "Extended EARFCN support"}, "101": {"activated": false, "description": "ProSe"}, "102": {"activated": false, "description": "USAT Application Pairing"}, "103": {"activated": false, "description": "Media Type support"}, "104": {"activated": false, "description": "IMS call disconnection cause"}, "105": {"activated": false, "description": "URI support for MO SHORT MESSAGE CONTROL"}, "106": {"activated": false, "description": "ePDG configuration Information support"}, "107": {"activated": false, "description": "ePDG configuration Information configured"}, "108": {"activated": false, "description": "ACDC support"}, "109": {"activated": false, "description": "MCPTT"}, "110": {"activated": false, "description": "ePDG configuration Information for Emergency Service support"}, "111": {"activated": false, "description": "ePDG configuration Information for Emergency Service configured"}, "112": {"activated": false, "description": "eCall Data over IMS"}, "113": {"activated": false, "description": "URI support for SMS-PP DOWNLOAD as defined in 3GPP TS 31.111 [12]"}, "114": {"activated": false, "description": "From Preferred"}, "115": {"activated": false, "description": "IMS configuration data"}, "116": {"activated": false, "description": "TV configuration"}, "117": {"activated": false, "description": "3GPP PS Data Off"}, "118": {"activated": false, "description": "3GPP PS Data Off Service List"}, "119": {"activated": false, "description": "V2X"}, "120": {"activated": false, "description": "XCAP Configuration Data"}, "121": {"activated": false, "description": "EARFCN list for MTC/NB-IOT UEs"}, "122": {"activated": false, "description": "5GS Mobility Management Information"}, "123": {"activated": false, "description": "5G Security Parameters"}, "124": {"activated": false, "description": "Subscription identifier privacy support"}, "125": {"activated": false, "description": "SUCI calculation by the USIM"}, "126": {"activated": false, "description": "UAC Access Identities support"}, "127": {"activated": false, "description": "Expect control plane-based Steering of Roaming information during initial registration in VPLMN"}, "128": {"activated": false, "description": "Call control on PDU Session by USIM"}, "129": {"activated": false, "description": "5GS Operator PLMN List"}, "130": {"activated": false, "description": "Support for SUPI of type NSI or GLI or GCI"}, "131": {"activated": false, "description": "3GPP PS Data Off separate Home and Roaming lists"}, "132": {"activated": false, "description": "Support for URSP by USIM"}, "133": {"activated": false, "description": "5G Security Parameters extended"}, "134": {"activated": false, "description": "MuD and MiD configuration data"}, "135": {"activated": false, "description": "Support for Trusted non-3GPP access networks by USIM"}, "136": {"activated": false, "description": "Support for multiple records of NAS security context storage for multiple registration"}}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.LOCI                 -        9000 {"tmsi": "ffffffff", "lai": {"mcc_mnc": "311-480", "lac": "0001"}, "rfu": 0, "lu_status": 0}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.PSLOCI               -        9000 {"ptmsi": "ffffffff", "ptmsi_sig": "ffffff", "rai": "134108fffeff", "rau_status": 2}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.EPSLOCI              -        9000 {"guti": "0bf6130184fa3845c0bd1d1d", "last_visited_registered_tai": "1301844008", "eps_update_status": "updated"}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.Keys                 -        9000 {"ksi": 7, "ck": "ffffffffffffffffffffffffffffffff", "ik": "ffffffffffffffffffffffffffffffff"}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.KeysPS               -        9000 {"ksi": 7, "ck": "ffffffffffffffffffffffffffffffff", "ik": "ffffffffffffffffffffffffffffffff"}
+===============================
+00 READ RECORD      MF/ADF.USIM/EF.EPSNSC               01       9000 {"eps_nas__security__context": [{"ksi_asme": 0}, {"k_asme": "c58e902427b61792eadf31a5229b77d5dd24e6a77db0809bb03232db162d964b"}, {"uplink_nas_count": 53}, {"downlink_nas_count": 23}, {"i_dof_nas_algorithms": "22"}]}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.START-HFN            -        9000 {"start_cs": 15728640, "start_ps": 15728640}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.THRESHOLD            -        9000 {"max_start": 16777215}
+===============================
+00 READ BINARY      MF/ADF.USIM/DF.GSM-ACCESS/EF.Kc     -        9000 {"kc": "0000000000000000", "cksn": 7}
+===============================
+00 READ BINARY      MF/ADF.USIM/DF.GSM-ACCESS/EF.KcGPRS -        9000 {"kc": "ffffffffffffffff", "cksn": 7}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.SPN                  -        9000 {"rfu": 0, "hide_in_oplmn": false, "show_in_hplmn": false, "spn": "Carrier"}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.EHPLMN               -        9000 [{"mcc": "454", "mnc": "35"}, null, null, null, null]
+===============================
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6f16 (7fff/6f16)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6f14 (7fff/6f14)
+00 READ BINARY      MF/ADF.USIM/EF.HPPLMN               -        9000 10
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.HPLMNwAcT            -        9000 "54f4534000"
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.PLMNwAcT             -        9000 [null, null, null, null, null, null, null, null]
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.OPLMNwAcT            -        9000 [{"mcc": "311", "mnc": "804", "act": ["E-UTRAN NB-S1", "E-UTRAN WB-S1"]}, {"mcc": "310", "mnc": "602", "act": ["E-UTRAN NB-S1", "E-UTRAN WB-S1"]}, null, null, null, null, null, null]
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.FPLMN                -        9000 [null, null, null, null]
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.EST                  -        9000 {"1": {"activated": false, "description": "Fixed Dialling Numbers (FDN)"}, "2": {"activated": false, "description": "Barred Dialling Numbers (BDN)"}, "3": {"activated": false, "description": "APN Control List (ACL)"}, "4": {"activated": false}, "5": {"activated": false}, "6": {"activated": false}, "7": {"activated": false}, "8": {"activated": false}}
+===============================
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6fc3 (7fff/6fc3)
+00 GET STATUS                                           -        9000 {"p1": 1, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6f16 (7fff/6f16)
+00 UPDATE BINARY    MF/ADF.USIM/EF.Keys                 -        9000 "07"
+===============================
+00 UPDATE BINARY    MF/ADF.USIM/EF.KeysPS               -        9000 "07"
+===============================
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6fe5 (7f10/6fe5)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6f14 (7fff/6f14)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 7f66 (7fff/7f66/5f30/4f34)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 5f30 (7fff/7f66/5f30/4f34)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 4f34 (7fff/7f66/5f30/4f34)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 7f66 (7fff/7f66/5f30/4f36)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 5f30 (7fff/7f66/5f30/4f36)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 4f36 (7fff/7f66/5f30/4f36)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6f15 (7fff/6f15)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6f17 (7fff/6f17)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 5f3a (7f10/5f3a/4f30)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 4f30 (7f10/5f3a/4f30)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6f15 (7fff/6f15)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6f3a (7f10/6f3a)
+WARNING  pySim.apdu.ts_102_221: SELECT UNKNOWN FID 6f4a (7f10/6f4a)
+00 READ RECORD      MF/ADF.USIM/EF.ARR                  05       9000 [[{"access_mode": ["update_erase", "read_search_compare"]}, {"control_reference_template": "PIN1"}], [{"access_mode": ["delete_file", "activate_file_or_record", "deactivate_file_or_record"]}, {"control_reference_template": "ADM1"}]]
+===============================
+00 UPDATE RECORD    MF/ADF.USIM/EF.EPSNSC               01       9000 {"eps_nas__security__context": [{"ksi_asme": 7}, {"k_asme": "c58e902427b61792eadf31a5229b77d5dd24e6a77db0809bb03232db162d964b"}, {"uplink_nas_count": 53}, {"downlink_nas_count": 23}, {"i_dof_nas_algorithms": "22"}]}
+===============================
+00 READ BINARY      MF/ADF.USIM/EF.SMSS                 -        9000 {"last_used_tpmr": 255, "memory_capacity_exceeded": false}
+===============================
+00 UPDATE BINARY    MF/ADF.USIM/EF.LOCI                 -        9000 {"tmsi": "ffffffff", "lai": {"mcc_mnc": "311-480", "lac": "0001"}, "rfu": 0, "lu_status": 0}
+===============================
+00 ENVELOPE                                             -        910b {"p1": 0, "p2": 0, "cmd": [{"event_download": [{"event_list": ["location_status"]}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"location_status": "normal_service"}, {"location_information": {"mcc_mnc": "130184", "tac": "4008", "eci": "0fa5a1af"}}]}]}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"provide_local_information": [{"command_details": {"command_number": 1, "type_of_command": "provide_local_info", "command_qualifier": 3}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "terminal"}}]}}
+===============================
+00 TERMINAL RESPONSE                                     -        9000 {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "provide_local_info", "command_qualifier": 3}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "performed_successfully", "additional_information": ""}}, {"unknown_compr_tlv_ie_a6": {"raw": "525041413422ff"}}]}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 GET STATUS                                           -        910b {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"provide_local_information": [{"command_details": {"command_number": 1, "type_of_command": "provide_local_info", "command_qualifier": 3}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "terminal"}}]}}
+===============================
+00 TERMINAL RESPONSE                                     -        9120 {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "provide_local_info", "command_qualifier": 3}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "performed_successfully", "additional_information": ""}}, {"unknown_compr_tlv_ie_a6": {"raw": "52504111108069"}}]}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"open_channel": [{"command_details": {"command_number": 1, "type_of_command": "open_channel", "command_qualifier": 1}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "terminal"}}, {"alpha_identifier": null}, {"bearer_description": {"bearer_type": "default", "bearer_parameters": ""}}, {"buffer_size": 512}, {"uicc_transport_level": {"protocol_type": "tcp_uicc_client_remote", "port_number": 31885}}, {"other_address": {"type_of_address": "ipv4", "address": "128a5fc6"}}]}}
+===============================
+00 TERMINAL RESPONSE                                     -        910b {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "open_channel", "command_qualifier": 1}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "performed_successfully", "additional_information": ""}}, {"channel_status": "8100"}, {"bearer_description": {"bearer_type": "default", "bearer_parameters": ""}}, {"buffer_size": 512}]}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"provide_local_information": [{"command_details": {"command_number": 1, "type_of_command": "provide_local_info", "command_qualifier": 1}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "terminal"}}]}}
+===============================
+00 TERMINAL RESPONSE                                     -        910b {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "provide_local_info", "command_qualifier": 1}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "performed_successfully", "additional_information": ""}}, {"unknown_compr_tlv_ie_94": {"raw": "3a25498148731800"}}]}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"provide_local_information": [{"command_details": {"command_number": 1, "type_of_command": "provide_local_info", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "terminal"}}]}}
+===============================
+00 TERMINAL RESPONSE                                     -        9157 {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "provide_local_info", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "performed_successfully", "additional_information": ""}}, {"unknown_compr_tlv_ie_93": {"raw": "13018440080fa5a1af"}}]}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"send_data": [{"command_details": {"command_number": 1, "type_of_command": "send_data", "command_qualifier": 1}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "channel_1"}}, {"channel_data": "01985832052604001046300004f56077000000000000008556706a74e039607b97fbc4de9bdd2a169c8289c536e482764ba47207e467d7b1ac05a1a099aafaca9d5f299599c01a527a8c"}]}}
+===============================
+00 TERMINAL RESPONSE                                     -        9000 {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "send_data", "command_qualifier": 1}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "performed_successfully", "additional_information": ""}}, {"channel_data_length": 255}]}
+===============================
+00 ENVELOPE                                             -        910e {"p1": 0, "p2": 0, "cmd": [{"event_download": [{"event_list": ["data_available"]}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"channel_status": "8100"}, {"channel_data_length": 58}]}]}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"receive_data": [{"command_details": {"command_number": 1, "type_of_command": "receive_data", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "channel_1"}}, {"channel_data_length": 58}]}}
+===============================
+00 TERMINAL RESPONSE                                     -        910b {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "receive_data", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "performed_successfully", "additional_information": ""}}, {"channel_data": "02985832052604001046300004f56077000000000000008556703216a0e31bc19d6e1644b89e6fe338b2d3e7de0e1afa0f089150569e49223845"}, {"channel_data_length": 0}]}
+===============================
+00 FETCH                                                -        9000 {"p1": 0, "p2": 0, "rsp": {"close_channel": [{"command_details": {"command_number": 1, "type_of_command": "close_channel", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "uicc", "dest_dev_id": "channel_1"}}]}}
+===============================
+00 TERMINAL RESPONSE                                     -        9000 {"p1": 0, "p2": 0, "cmd": [{"command_details": {"command_number": 1, "type_of_command": "close_channel", "command_qualifier": 0}}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"result": {"general_result": "performed_successfully", "additional_information": ""}}]}
+===============================
+00 ENVELOPE                                             -        9000 {"p1": 0, "p2": 0, "cmd": [{"event_download": [{"event_list": ["location_status"]}, {"device_identities": {"source_dev_id": "terminal", "dest_dev_id": "uicc"}}, {"location_status": "normal_service"}, {"location_information": {"mcc_mnc": "130184", "tac": "4008", "eci": "0fa5a02f"}}]}]}
+===============================
+00 GET STATUS                                           -        9000 {"p1": 0, "p2": 1, "cmd": "8410a0000000871002ff33ff018900000100"}
+===============================
+
+
